@@ -1,0 +1,17 @@
+{
+  "name": "polymarket-bot",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@chainlink/data-streams-sdk": "^1.2.1",
+    "@polymarket/clob-client": "^5.5.0",
+    "ethers": "5.8.0"
+  }
+}
