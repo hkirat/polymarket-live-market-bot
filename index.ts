@@ -70,11 +70,15 @@ ws.onmessage = (data) => {
 
     if (timeLeft <= 30 && lastMarketEndPrice && !orderPlacedForMarket[currentActiveMarketId]) {
         orderPlacedForMarket[currentActiveMarketId] = true;
-        if ((lastMarketEndPrice - value) < 100) {
+        if (lastMarketEndPrice > value && (lastMarketEndPrice - value) < 100) {
             console.log("place buy order")
+            // TODO replace this with the slug
+            createOrderForMarket(currentActiveMarketId, Side.SELL, 0.9, 100)
         }
         
-        if ((lastMarketEndPrice - value) > 100) {
+        if (lastMarketEndPrice < value && (value - lastMarketEndPrice ) > 100) {
+            // TODO replace this with the slug
+            createOrderForMarket(currentActiveMarketId, Side.BUY, 0.9, 100)
             console.log("place sell order")
         }
         
